@@ -10,6 +10,8 @@ local codes = {
     "Sub2BmGTormenter117onYT",
     "Sub2CodeNex77k",
     "NeelsTV",
+    "ALSUpdate2YutaHype",
+    "Real"
 }
 
 return codes
