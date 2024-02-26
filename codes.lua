@@ -11,7 +11,9 @@ local codes = {
     "Sub2CodeNex77k",
     "NeelsTV",
     "ALSUpdate2YutaHype",
-    "Real"
+    "Real",
+    "PORTALS",
+    "SorryForDelayAndMaintenance"
 }
 
 return codes
