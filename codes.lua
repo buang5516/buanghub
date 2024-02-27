@@ -14,7 +14,8 @@ local codes = {
     "Real",
     "PORTALS",
     "SorryForDelayAndMaintenance",
-    "PortalBugFixes"
+    "PortalBugFixes",
+    "TORMENTER10KSUBSLETSGOOOOOOO"
 }
 
 return codes
