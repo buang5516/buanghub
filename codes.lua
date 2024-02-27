@@ -13,7 +13,8 @@ local codes = {
     "ALSUpdate2YutaHype",
     "Real",
     "PORTALS",
-    "SorryForDelayAndMaintenance"
+    "SorryForDelayAndMaintenance",
+    "PortalBugFixes"
 }
 
 return codes
