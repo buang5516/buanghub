@@ -17,7 +17,9 @@ local codes = {
     "PortalBugFixes",
     "TORMENTER10KSUBSLETSGOOOOOOO",
     "Blams100kFavoritesCode",
-    "BackupMinatoMustBeSubbedtoTorToWork"
+    "BackupMinatoMustBeSubbedtoTorToWork",
+    "BlamSpotsOP75MillVisitCodeMustBeSubbedToWork",
+    
 }
 
 return codes
