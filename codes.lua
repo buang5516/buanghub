@@ -19,7 +19,8 @@ local codes = {
     "Blams100kFavoritesCode",
     "BackupMinatoMustBeSubbedtoTorToWork",
     "BlamSpotsOP75MillVisitCodeMustBeSubbedToWork",
-    "shockssuperspecialultrasecretcodebecauseineedsubscribersmustbesubscribedtowork"
+    "shockssuperspecialultrasecretcodebecauseineedsubscribersmustbesubscribedtowork",
+    "Blams100kLikesCode"
 }
 
 return codes
