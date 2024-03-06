@@ -119,7 +119,7 @@ function PandaAuth:ValidateKey(serviceID, ClientKey)
 	end
 	local Service_ID = string.lower(serviceID)
 	local response = request({
-		Url = "https://pandadevelopment.net/failsafeValidation?service=" .. Service_ID .. "&hwid=" ..GetHardwareID(Service_ID) .. "&key="..ClientKey,
+		Url = "https://pandadevelopment.cloud/failsafeValidation?service=" .. Service_ID .. "&hwid=" ..GetHardwareID(Service_ID) .. "&key="..ClientKey,
 		Method = "GET"
 	})
 	if response.StatusCode == 200 then
@@ -152,7 +152,7 @@ function PandaAuth:ValidatePremiumKey(serviceID, ClientKey)
 		return true
 	end
 	local response = request({
-		Url = "https://pandadevelopment.net/failsafeValidation?service=" .. service_name .. "&hwid=" ..GetHardwareID(service_name) .. "&key="..ClientKey,
+		Url = "https://pandadevelopment.cloud/failsafeValidation?service=" .. service_name .. "&hwid=" ..GetHardwareID(service_name) .. "&key="..ClientKey,
 		Method = "GET"
 	})
 	if response.StatusCode == 200 then
@@ -187,7 +187,7 @@ end
 -- Contributed from [ Hub Member: asrua ]
 function PandaAuth:ResetHardwareID(ServiceID, oldKey)
 	local service_name = string.lower(ServiceID)
-	for i,v in pairs(http_service:JSONDecode(request({Url = "https://pandadevelopment.net/serviceapi/edit/hwid/?service="..service_name.."&key=" .. oldKey .. "&newhwid=" .. game:GetService("RbxAnalyticsService"):GetClientId(), Method = "POST"}).Body)) do
+	for i,v in pairs(http_service:JSONDecode(request({Url = "https://pandadevelopment.cloud/serviceapi/edit/hwid/?service="..service_name.."&key=" .. oldKey .. "&newhwid=" .. game:GetService("RbxAnalyticsService"):GetClientId(), Method = "POST"}).Body)) do
 		print(i, v)
 	end
 end
