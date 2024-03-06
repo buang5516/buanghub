@@ -1,227 +1,455 @@
-local PandaAuth = {}
+local finishedKey = false
+local KeySystemUI = { Closed = false }
+local UIMade = false
 
--- User Customizations
-
-getgenv().AllowLibNotification = true
-getgenv().CustomLogo = "14317130710"
-getgenv().DebugMode = false
-
-local TemporaryAccess = false
-
--- Roblox Lua Services
-local http_service = cloneref(game:GetService("HttpService"))
-local rbx_analytics_service = cloneref(game:GetService("RbxAnalyticsService"))
-local starter_gui_service = cloneref(game:GetService("StarterGui"))
-local players_service = cloneref(game:GetService("Players"))
-local _tostring = clonefunction(tostring)
-
-
--- Server Domain
-local server_configuration = "https://pandadevelopment.cloud"
-
--- Lua Lib Version
-local LibVersion = "v2.1.6_Release"
--- warn("Panda-Pelican Libraries Loaded ( "..LibVersion.." )")
--- Validation Services
-local validation_service = server_configuration.. "/failsafeValidation"
-
-
-function DebugText(text)
-	if getgenv().DebugMode then
-		print("[ Developer Mode ] - "..text)
+local UserInputService = game:GetService("UserInputService")
+local CoreGUI = game:GetService("CoreGui")
+local HttpService = game:GetService("HttpService")
+local httprequest = (syn and syn.request)
+	or (http and http.request)
+	or http_request
+	or (fluxus and fluxus.request)
+	or request
+	or HttpPost
+local HIDEUI = get_hidden_gui or gethui
+if syn and typeof(syn) == "table" and RenderWindow then
+	syn.protect_gui = gethui
+end
+local RemoveStringsInvite = { "discord.gg", "discord.com/invite" }
+local function JoinDiscord(DiscordInvite)
+	if setclipboard then
+		setclipboard(DiscordInvite)
 	end
-end
-
-
-local function GetHardwareID(service)
-	local client_id = rbx_analytics_service:GetClientId()
-	local success, jsonData = pcall(function()
-		return http_service:JSONDecode(game:HttpGet(server_configuration .. "/serviceapi?service=" .. service .. "&command=getconfig"))
-	end)
-	if success then        
-		if jsonData.AuthMode == "playerid" then
-			return _tostring(players_service.LocalPlayer.UserId)
-		elseif jsonData.AuthMode == "hwidplayer" then
-			return client_id..players_service.LocalPlayer.UserId
-		elseif jsonData.AuthMode == "hwidonly" then
-			return client_id
-		else
-			return players_service.LocalPlayer.UserId
+	if httprequest then
+		for _, v in pairs(RemoveStringsInvite) do
+			DiscordInvite = string.gsub(DiscordInvite, "https://", "")
+			DiscordInvite = string.gsub(DiscordInvite, "http://", "")
+			DiscordInvite = string.gsub(DiscordInvite, v .. "/", "")
+			DiscordInvite = string.gsub(DiscordInvite, v, "")
 		end
-	else
-		-- Handle the error, for example:
-		warn("Failed to decode JSON data:", jsonData)
-		return client_id -- or any other appropriate action
-	end    
-end
-
-local function PandaLibNotification(message)
-	if AllowLibNotification then
-		starter_gui_service:SetCore("SendNotification", {
-			Title = "Key System ",
-			Text = message,
-			Duration = 6,
-			Icon = "rbxassetid://"..CustomLogo
+		httprequest({
+			Url = "http://127.0.0.1:6463/rpc?v=1",
+			Method = "POST",
+			Headers = {
+				["Content-Type"] = "application/json",
+				["Origin"] = "https://discord.com",
+			},
+			Body = HttpService:JSONEncode({
+				cmd = "INVITE_BROWSER",
+				args = {
+					code = DiscordInvite,
+				},
+				nonce = HttpService:GenerateGUID(false),
+			}),
 		})
 	end
 end
+local function Validate(Values, options)
+	for i, v in pairs(Values) do
+		if options[i] == nil then
+			options[i] = v
+		end
+	end
 
-function PandaAuth:Version()
-	return LibVersion
+	return options
 end
+local function Hide_UI(gui)
+	if HIDEUI then
+		gui["Parent"] = HIDEUI()
+	elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
+		syn.protect_gui(gui)
+		gui["Parent"] = CoreGUI
+	elseif CoreGUI:FindFirstChild("RobloxGui") then
+		gui["Parent"] = CoreGUI.RobloxGui
+	else
+		gui["Parent"] = CoreGUI
+	end
+end
+local function MakeDraggable(gui)
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position =
+			UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	gui.InputBegan:Connect(function(input)
+		if
+			input.UserInputType == Enum.UserInputType.MouseButton1
+			or input.UserInputType == Enum.UserInputType.Touch
+		then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
 
-function PandaAuth:GetKey(Exploit)
-	if TemporaryAccess then
-		local TempKey = server_configuration .. "/getkey?service=" .. Exploit .. "&hwid=" .. players_service.LocalPlayer.UserId;
-		return TempKey
-	end
-	if Exploit == "vegax" then
-		local VegaExclusive = server_configuration .. "/getkey?service=vegax&hwid=" .. GetHardwareID(Exploit).."&provider=linkvertise";
-		return VegaExclusive
-	end
-	local user_link = server_configuration .. "/getkey?service=" .. Exploit .. "&hwid=" .. GetHardwareID(Exploit);
-	PandaLibNotification(user_link)
-	DebugText("Get Key: "..user_link)
-	return user_link
-end
-function PandaAuth:GetLink(Exploit)
-	if TemporaryAccess then
-		local TempKey = server_configuration .. "/getkey?service=" .. Exploit .. "&hwid=" .. players_service.LocalPlayer.UserId;
-		return TempKey
-	end
-	if Exploit == "vegax" then
-		local VegaExclusive = server_configuration .. "/getkey?service=vegax&hwid=" .. GetHardwareID(Exploit).."&provider=linkvertise";
-		return VegaExclusive
-	end
-	local user_link = server_configuration .. "/getkey?service=" .. Exploit .. "&hwid=" .. GetHardwareID(Exploit);
-	PandaLibNotification(user_link)
-	DebugText("Get Key: "..user_link)
-	return user_link
-end
-
--- New Function ( GetResponseSummary() )
-function PandaAuth:GetResponseSummary()
-	local success, data = pcall(function()
-		return http_service:JSONDecode(readfile("Panda_AuthSummary.json"))
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	gui.InputChanged:Connect(function(input)
+		if
+			input.UserInputType == Enum.UserInputType.MouseMovement
+			or input.UserInputType == Enum.UserInputType.Touch
+		then
+			dragInput = input
+		end
 	end)
 
-	if success then
-		return data["code"]
-	else
-		warn("Failed to Get Summary Result :skull:")
-		return ""
-	end
-end
-
-function PandaAuth:ValidateKey(serviceID, ClientKey)
-	if TemporaryAccess then
-		return true
-	end
-	local Service_ID = string.lower(serviceID)
-	local response = request({
-		Url = "https://pandadevelopment.cloud/failsafeValidation?service=" .. Service_ID .. "&hwid=" ..GetHardwareID(Service_ID) .. "&key="..ClientKey,
-		Method = "GET"
-	})
-	if response.StatusCode == 200 then
-		-- Instead of fucking finding a string true... why do this
-		local success, data = pcall(function()
-			return http_service:JSONDecode(response.Body)
-		end)
-		if success and data["status"] == "success" then
-			return true
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
 		end
-		return false
-	elseif response.StatusCode == 406 then
-		-- Especific Hardware / IP Address got Banned
-		return false
-	elseif response.StatusCode == 403 then
-		-- Especific Hardware / IP Address got Banned
-		return false
-	elseif response.StatusCode == 204 then
-		-- Invalid Key 
-		return false
-	elseif response.StatusCode == 429 then
-		-- Rate Limiter kicked ( Cloudflare limits for 10seconds. )
-		return false
-	end
+	end)
 end
 
-function PandaAuth:ValidatePremiumKey(serviceID, ClientKey)
-	local service_name = string.lower(serviceID)
-	if TemporaryAccess then
-		return true
-	end
-	local response = request({
-		Url = "https://pandadevelopment.cloud/failsafeValidation?service=" .. service_name .. "&hwid=" ..GetHardwareID(service_name) .. "&key="..ClientKey,
-		Method = "GET"
-	})
-	if response.StatusCode == 200 then
-		-- Instead of fucking finding a string true... why do this
-		local success, data = pcall(function()
-			return http_service:JSONDecode(response.Body)
-		end)
-		if success and data["status"] == "success" and data["isPremium"] == true then
-			return true
-		end
-		return false
-	elseif response.StatusCode == 406 then
-		-- Especific Hardware / IP Address got Banned
-		return false
-	elseif response.StatusCode == 403 then
-		-- Especific Hardware / IP Address got Banned
-		return false
-	elseif response.StatusCode == 204 then
-		-- Invalid Key 
-		return false
-	elseif response.StatusCode == 429 then
-		-- Rate Limiter kicked ( Cloudflare limits for 10seconds. )
-		return false
-	end
-end
+-- Notify Lib by mr.xrer
+-- License: https://api-sirclub.onrender.com/scripts/raw/license
+local Notif = loadstring(
+	game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/ui/notify_ui.lua")
+)()
 
-function PandaAuth:ValidateNormalKey(service_name, Key)
-	local bruh = PandaAuth:ValidateKey(service_name, Key)
-	return bruh
-end
-
--- Contributed from [ Hub Member: asrua ]
-function PandaAuth:ResetHardwareID(ServiceID, oldKey)
-	local service_name = string.lower(ServiceID)
-	for i,v in pairs(http_service:JSONDecode(request({Url = "https://pandadevelopment.cloud/serviceapi/edit/hwid/?service="..service_name.."&key=" .. oldKey .. "&newhwid=" .. game:GetService("RbxAnalyticsService"):GetClientId(), Method = "POST"}).Body)) do
-		print(i, v)
-	end
-end
-
-
-function PandaAuth:SetHTTPProtocol(IPv4)
-	local No_Execute = "No_Data_Set_Here"
-	if IPv4 == "" or IPv4 == nil then
-		warn("[Unable to Start HTTP-Protocol] - Missing IP Address / Port")
+-- Main Function
+local function MakeUi(applicationName, name, info, discordInvite)
+	if UIMade == true then
 		return
 	end
-	task.spawn(function() 
-		while true do
-			wait(0.1)
-			local content = game:HttpGet(IPv4.."/readcontent")     
-			if content ~= No_Execute then
-				local success, result = pcall(function()
-					runcode(content)
-					local a = tostring(game:HttpGet(IPv4.."/clear"))
-				end)
+	UIMade = true
 
-				if not success then
-					-- Handle the exception here
-					warn("Error executing loaded code:", result)
-					local b = tostring(game:HttpGet(IPv4.."/clear"))
-				end        
+    local KeySystem
+    local alreadyKeyed
+    local CloseGUI
+	local KeyLibrary = KeyLibrary
+		or loadstring(
+			game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup_obf.lua")
+		)()
+	local KeyLibRun, KeyLibError = pcall(function()
+		KeySystem = KeyLibrary.new(applicationName)
+		if KeySystem.AppNameNow then
+			while true do
+			end
+			return
+		end
+	end)
+	if KeyLibError or KeyLibRun == false then
+		Notif.New("Failed to load the Key System: " .. tostring(KeyLibError))
+		if CloseGUI() then CloseGUI() end;
+	else
+		local CurrentKeyInput = ""
+		local SavedKeyPath = applicationName .. "_key.txt"
+		local function iskeyvalid(key_input)
+			if key_input ~= nil then
+				CurrentKeyInput = key_input
+			end
+
+			if KeySystem:verifyKey(CurrentKeyInput) then
+				_G.Key = CurrentKeyInput
+				finishedKey = true
+				return true
+			end
+			return false
+		end
+
+		function KeySystemUI.Finished()
+			return finishedKey
+		end
+
+		if readfile and writefile then
+			local success_file, error_file = pcall(function()
+				local is_key_present = isfile(SavedKeyPath)
+
+				if is_key_present == true then
+					Notif.New("Checking saved key...", 2)
+
+					local key_file_txt = readfile(SavedKeyPath)
+					local onl_key = iskeyvalid(key_file_txt)
+
+					if onl_key then
+						Notif.New("Saved key is valid! Loading " .. tostring(name) .. "...", 5)
+                        alreadyKeyed=true
+						if CloseGUI then CloseGUI() end
+					else
+						delfile(SavedKeyPath)
+						Notif.New("Saved key is invalid.", 2)
+					end
+				end
+			end)
+			if error_file then
+				Notif.New("Failed to check saved key.", 5)
+				warn(error_file)
 			end
 		end
-	end) 
+
+        if alreadyKeyed then return end
+
+	local key_system = Instance.new("ScreenGui")
+	key_system.IgnoreGuiInset = false
+	key_system.ResetOnSpawn = true
+	key_system.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	key_system.Name = "KeySystem"
+	key_system.Parent = workspace
+	Hide_UI(key_system)
+
+	local canvas_group = Instance.new("CanvasGroup")
+	canvas_group.AnchorPoint = Vector2.new(0.5, 0.5)
+	canvas_group.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
+	canvas_group.BorderColor3 = Color3.new(0, 0, 0)
+	canvas_group.BorderSizePixel = 0
+    canvas_group.Active = true
+	canvas_group.Position = UDim2.new(0.5, 0, 0.5, 0)
+	canvas_group.Size = UDim2.new(0, 350, 0, 265)
+	canvas_group.Visible = true
+	canvas_group.Parent = key_system
+	MakeDraggable(canvas_group)
+
+	local uicorner = Instance.new("UICorner")
+	uicorner.CornerRadius = UDim.new(0, 5)
+	uicorner.Parent = canvas_group
+
+	local top_frame = Instance.new("Frame")
+	top_frame.BackgroundColor3 = Color3.new(0.105882, 0.105882, 0.105882)
+	top_frame.BorderColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+	top_frame.Size = UDim2.new(1, 0, 0, 40)
+	top_frame.Visible = true
+	top_frame.Name = "TopFrame"
+	top_frame.Parent = canvas_group
+
+	local close_btn = Instance.new("TextButton")
+	close_btn.Font = Enum.Font.SourceSans
+	close_btn.Text = ""
+	close_btn.TextColor3 = Color3.new(0, 0, 0)
+	close_btn.TextSize = 14
+	close_btn.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+	close_btn.BorderColor3 = Color3.new(0, 0, 0)
+	close_btn.BorderSizePixel = 0
+	close_btn.Position = UDim2.new(0.942857146, -15, 0.107142858, 0)
+	close_btn.Size = UDim2.new(0, 30, 0, 30)
+	close_btn.Visible = true
+	close_btn.ZIndex = 2
+	close_btn.Name = "CloseBtn"
+	close_btn.Parent = top_frame
+
+	local uicorner_2 = Instance.new("UICorner")
+	uicorner_2.CornerRadius = UDim.new(0, 5)
+	uicorner_2.Parent = close_btn
+
+	local clear = Instance.new("ImageButton")
+	clear.Image = "rbxassetid://3926305904"
+	clear.ImageColor3 = Color3.new(0.619608, 0.619608, 0.619608)
+	clear.ImageRectOffset = Vector2.new(924, 724)
+	clear.ImageRectSize = Vector2.new(36, 36)
+	clear.ImageTransparency = 0.10000000149011612
+	clear.AnchorPoint = Vector2.new(0.5, 0.5)
+	clear.BackgroundTransparency = 1
+	clear.LayoutOrder = 3
+	clear.Position = UDim2.new(0.5, 0, 0.5, 0)
+	clear.Size = UDim2.new(0, 20, 0, 20)
+	clear.Visible = true
+	clear.ZIndex = 2
+	clear.Name = "clear"
+	clear.Parent = close_btn
+
+	local text_label = Instance.new("TextLabel")
+	text_label.Font = Enum.Font.Gotham
+	text_label.RichText = true
+    text_label.Active = true
+	text_label.Text = tostring(name) .. " - <b>Key System</b>"
+	text_label.TextColor3 = Color3.new(0.862745, 0.862745, 0.862745)
+	text_label.TextSize = 14
+	text_label.BackgroundColor3 = Color3.new(1, 1, 1)
+	text_label.BackgroundTransparency = 1
+	text_label.BorderColor3 = Color3.new(0, 0, 0)
+	text_label.BorderSizePixel = 0
+	text_label.Size = UDim2.new(0, 350, 0, 40)
+	text_label.Visible = true
+	text_label.Parent = top_frame
+
+	local text_label_2 = Instance.new("TextLabel")
+	text_label_2.Font = Enum.Font.Gotham
+	if info == "" then
+		text_label_2.Text = "To use the free version of "
+			.. tostring(name)
+			.. " you need a key. Click 'Get Key' button to get your key!"
+	else
+		text_label_2.Text = info == nil
+				and "To use the free version of " .. tostring(name) .. " you need a key. Click 'Get Key' button to get your key!"
+			or tostring(info)
+	end
+	text_label_2.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+	text_label_2.TextSize = 14
+	text_label_2.TextWrapped = true
+	text_label_2.BackgroundColor3 = Color3.new(1, 1, 1)
+	text_label_2.BackgroundTransparency = 1
+	text_label_2.BorderColor3 = Color3.new(0, 0, 0)
+	text_label_2.BorderSizePixel = 0
+	text_label_2.Position = UDim2.new(0.034285713, 0, 0.143999994, 14)
+	text_label_2.Size = UDim2.new(0, 325, 0, 49)
+	text_label_2.Visible = true
+	text_label_2.Parent = canvas_group
+
+	local text_box = Instance.new("TextBox")
+	text_box.CursorPosition = -1
+	text_box.Font = Enum.Font.Gotham
+	text_box.PlaceholderText = "Enter Key..."
+	text_box.Text = ""
+	text_box.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+	text_box.TextSize = 16
+	text_box.TextTruncate = Enum.TextTruncate.AtEnd
+	text_box.TextXAlignment = Enum.TextXAlignment.Left
+	text_box.BackgroundColor3 = Color3.new(0.109804, 0.109804, 0.109804)
+	text_box.BorderColor3 = Color3.new(0, 0, 0)
+	text_box.BorderSizePixel = 0
+	text_box.Position = UDim2.new(0.034285713, 0, 0.416000009, 5)
+	text_box.Size = UDim2.new(0, 325, 0, 50)
+	text_box.Visible = true
+	text_box.ClearTextOnFocus = false
+	text_box.Parent = canvas_group
+
+	local uicorner_3 = Instance.new("UICorner")
+	uicorner_3.CornerRadius = UDim.new(0, 4)
+	uicorner_3.Parent = text_box
+
+	local uipadding = Instance.new("UIPadding")
+	uipadding.PaddingLeft = UDim.new(0, 15)
+	uipadding.Parent = text_box
+
+	local check_key = Instance.new("TextButton")
+	check_key.Font = Enum.Font.Gotham
+	check_key.Text = "Check Key"
+	check_key.TextColor3 = Color3.new(1, 1, 1)
+	check_key.TextSize = 13
+	check_key.BackgroundColor3 = Color3.new(0.109804, 0.109804, 0.109804)
+	check_key.BorderColor3 = Color3.new(0, 0, 0)
+	check_key.BorderSizePixel = 0
+	check_key.Position = UDim2.new(0.034285713, 0, 0.656000018, 2)
+	check_key.Size = UDim2.new(0, 160, 0, 35)
+	check_key.Visible = true
+	check_key.Name = "CheckKey"
+	check_key.Parent = canvas_group
+
+	local uicorner_4 = Instance.new("UICorner")
+	uicorner_4.CornerRadius = UDim.new(0, 4)
+	uicorner_4.Parent = check_key
+
+	local get_key = Instance.new("TextButton")
+	get_key.Font = Enum.Font.Gotham
+	get_key.Text = "Get Key"
+	get_key.TextColor3 = Color3.new(1, 1, 1)
+	get_key.TextSize = 13
+	get_key.BackgroundColor3 = Color3.new(0.109804, 0.109804, 0.109804)
+	get_key.BorderColor3 = Color3.new(0, 0, 0)
+	get_key.BorderSizePixel = 0
+	get_key.Position = UDim2.new(0.505714238, 0, 0.656000018, 2)
+	get_key.Size = UDim2.new(0, 160, 0, 35)
+	get_key.Visible = true
+	get_key.Name = "GetKey"
+	get_key.Parent = canvas_group
+
+	local uicorner_5 = Instance.new("UICorner")
+	uicorner_5.CornerRadius = UDim.new(0, 4)
+	uicorner_5.Parent = get_key
+
+	if discordInvite ~= "" then
+		local discord = Instance.new("TextButton")
+		discord.Font = Enum.Font.Gotham
+		discord.Text = "Join the Discord Server"
+		discord.TextColor3 = Color3.new(1, 1, 1)
+		discord.TextSize = 13
+		discord.BackgroundColor3 = Color3.new(0, 0.588235, 0.392157)
+		discord.BorderColor3 = Color3.new(0, 0, 0)
+		discord.BorderSizePixel = 0
+		discord.Position = UDim2.new(0.034285713, 0, 0.819999993, 5)
+		discord.Size = UDim2.new(0, 325, 0, 35)
+		discord.Visible = true
+		discord.Name = "Discord"
+		discord.Parent = canvas_group
+
+		local uicorner_6 = Instance.new("UICorner")
+		uicorner_6.CornerRadius = UDim.new(0, 4)
+		uicorner_6.Parent = discord
+
+		discord.MouseButton1Click:Connect(function()
+			JoinDiscord(discordInvite)
+		end)
+	else
+		canvas_group.Size = UDim2.new(0, 350, 0, 185)
+		text_box.Position =
+			UDim2.new(text_box.Position.X.Scale, text_box.Position.X.Offset, text_box.Position.Y.Scale, 10)
+		get_key.Position = UDim2.new(get_key.Position.X.Scale, get_key.Position.X.Offset, get_key.Position.Y.Scale, 20)
+		check_key.Position =
+			UDim2.new(check_key.Position.X.Scale, check_key.Position.X.Offset, check_key.Position.Y.Scale, 20)
+	end
+
+	CloseGUI = function()
+		game:GetService("TweenService")
+			:Create(
+				canvas_group,
+				TweenInfo.new(0.45, Enum.EasingStyle.Linear),
+				{ Position = UDim2.new(0.5, 0, -1.5, 0) }
+			)
+			:Play()
+		game:GetService("TweenService")
+			:Create(top_frame, TweenInfo.new(0.45, Enum.EasingStyle.Linear), { Position = UDim2.new(0.5, 0, -1.5, 0) })
+			:Play()
+		task.wait(0.45)
+		key_system:Destroy()
+		UIMade = false
+	end
+
+	close_btn.MouseButton1Click:Connect(function()
+		KeySystemUI.Closed = true
+		CloseGUI()
+	end)
+
+
+
+		check_key.MouseButton1Click:Connect(function()
+			local keyValid = iskeyvalid(text_box.Text)
+			if keyValid then
+				if writefile then
+					writefile(SavedKeyPath, CurrentKeyInput)
+				end
+				Notif.New("Key is valid! Loading " .. tostring(name) .. "...", 5)
+				CloseGUI()
+			else
+				Notif.New("Invalid/Expired key!", 2)
+				text_box.Text = ""
+			end
+		end)
+
+		get_key.MouseButton1Click:Connect(function()
+			text_box.Text = KeySystem:getKeyURL()
+			if setclipboard then
+				KeySystem:copyGetKeyURL()
+				Notif.New("Copied URL to paste into your browser.", 2)
+			else
+				Notif.New("Your executor doesn't support setclipboard.", 2)
+			end
+		end)
+	end
 end
 
-function PandaAuth:SetWebsocket(IpAddress)
-	warn("This Feature is not available yet... Sorry")
-	print("Hi -> "..tostring(IpAddress))
+function KeySystemUI.New(settings)
+	settings = Validate({
+		ApplicationName = "",
+		Name = "",
+		Info = "",
+		DiscordInvite = "",
+	}, settings or {})
+
+	if typeof(settings.ApplicationName) ~= "string" then
+		warn("ApplicationName needs to be a string!")
+		return
+	end
+	if settings.ApplicationName == "" then
+		warn("ApplicationName can't be empty!")
+		return
+	end
+	MakeUi(settings.ApplicationName, settings.Name, settings.Info, settings.DiscordInvite)
 end
 
-return PandaAuth
+return KeySystemUI
