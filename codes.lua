@@ -21,7 +21,9 @@ local codes = {
     "BlamSpotsOP75MillVisitCodeMustBeSubbedToWork",
     "shockssuperspecialultrasecretcodebecauseineedsubscribersmustbesubscribedtowork",
     "Blams100kLikesCode",
-    "Update3", "Glitched"
+    "Update3", 
+    "Glitched",
+    "BLAMSPOTBUGFIXCODEMUSTBESUBBEDTOWORK!"
 }
 
 return codes
