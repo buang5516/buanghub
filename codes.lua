@@ -23,7 +23,8 @@ local codes = {
     "Blams100kLikesCode",
     "Update3", 
     "Glitched",
-    "BLAMSPOTBUGFIXCODEMUSTBESUBBEDTOWORK!"
+    "BLAMSPOTBUGFIXCODEMUSTBESUBBEDTOWORK!",
+    "ONEHUNDREDMILLION"
 }
 
 return codes
