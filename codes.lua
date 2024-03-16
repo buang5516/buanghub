@@ -26,7 +26,8 @@ local codes = {
     "BLAMSPOTBUGFIXCODEMUSTBESUBBEDTOWORK!",
     "ONEHUNDREDMILLION",
     "BlamsQuestBugCodeMustBeSubbedToWork",
-    "400kMembersLETSGOO"
+    "400kMembersLETSGOO",
+    "500kMembersLETSGOO"
 }
 
 return codes
