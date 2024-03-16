@@ -25,7 +25,8 @@ local codes = {
     "Glitched",
     "BLAMSPOTBUGFIXCODEMUSTBESUBBEDTOWORK!",
     "ONEHUNDREDMILLION",
-    "BlamsQuestBugCodeMustBeSubbedToWork"
+    "BlamsQuestBugCodeMustBeSubbedToWork",
+    "400kMembersLETSGOO"
 }
 
 return codes
