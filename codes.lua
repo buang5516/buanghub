@@ -27,7 +27,8 @@ local codes = {
     "ONEHUNDREDMILLION",
     "BlamsQuestBugCodeMustBeSubbedToWork",
     "400kMembersLETSGOO",
-    "500kMembersLETSGOO"
+    "500kMembersLETSGOO",
+    "2xDropsUpdateSOONHype!"
 }
 
 return codes
