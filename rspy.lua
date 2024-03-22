@@ -1914,14 +1914,6 @@ if not getgenv().SimpleSpyExecuted then
                 end
             end 
         end
-        Background.MouseEnter:Connect(function(...)
-            mouseInGui = true
-            mouseEntered()
-        end)
-        Background.MouseLeave:Connect(function(...)
-            mouseInGui = false
-            mouseEntered()
-        end)
         TextLabel:GetPropertyChangedSignal("Text"):Connect(scaleToolTip)
         -- TopBar.InputBegan:Connect(onBarInput)
         MinimizeButton.MouseButton1Click:Connect(toggleMinimize)
