@@ -28,7 +28,11 @@ local codes = {
     "BlamsQuestBugCodeMustBeSubbedToWork",
     "400kMembersLETSGOO",
     "500kMembersLETSGOO",
-    "2xDropsUpdateSOONHype!"
+    "2xDropsUpdateSOONHype!",
+    "UPDATE 4",
+    "FUSIONEVOLUTION",
+    "Goodbye Mash",
+    "TheGoat"
 }
 
 return codes
