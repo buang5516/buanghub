@@ -32,7 +32,9 @@ local codes = {
     "UPDATE 4",
     "FUSIONEVOLUTION",
     "Goodbye Mash",
-    "TheGoat"
+    "TheGoat",
+    "Sub2Shock",
+    "Sub2ZerozKinger1MilSubs"
 }
 
 return codes
