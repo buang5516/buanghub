@@ -34,7 +34,8 @@ local codes = {
     "Goodbye Mash",
     "TheGoat",
     "Sub2Shock",
-    "Sub2ZerozKinger1MilSubs"
+    "Sub2ZerozKinger1MilSubs",
+    "GlitchFix"
 }
 
 return codes
