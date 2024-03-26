@@ -35,7 +35,8 @@ local codes = {
     "TheGoat",
     "Sub2Shock",
     "Sub2ZerozKinger1MilSubs",
-    "GlitchFix"
+    "GlitchFix",
+    "SubToBlamSpotonYoutubeForShenron"
 }
 
 return codes
