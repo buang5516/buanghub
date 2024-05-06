@@ -69,7 +69,9 @@ local codes = {
     'QOLUPD!',
     'ConverterFix?!',
     'REDGATE?!',
-    'X7Weekend!'
+    'X7Weekend!',
+    'SOLOLEVELING!',
+    'HBDCaleB2024'
 }
 
 return codes
