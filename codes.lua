@@ -73,7 +73,10 @@ local codes = {
     'SOLOLEVELING!',
     'HBDCaleB2024',
     'Part1UPD!',
-    'NEWUPD?!'
+    'NEWUPD?!',
+    'ALSREVAMPSOON?',
+    'SOLOPART2SOON?!',
+    'QOLUpdate2!'
 }
 
 return codes
