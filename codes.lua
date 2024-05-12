@@ -71,7 +71,9 @@ local codes = {
     'REDGATE?!',
     'X7Weekend!',
     'SOLOLEVELING!',
-    'HBDCaleB2024'
+    'HBDCaleB2024',
+    'Part1UPD!',
+    'NEWUPD?!'
 }
 
 return codes
