@@ -6,5 +6,12 @@ local games = {
 }
 
 if games[game.CreatorId] then
+	
+	task.wait(math.random())
+	if getgenv().buanghub_autoload then
+		return
+	end
+	getgenv().buanghub_autoload = true;
+	
 	loadstring(game:HttpGet(games[game.CreatorId]))()
 end
