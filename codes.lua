@@ -76,7 +76,9 @@ local codes = {
     'NEWUPD?!',
     'ALSREVAMPSOON?',
     'SOLOPART2SOON?!',
-    'QOLUpdate2!'
+    'QOLUpdate2!',
+    'PARTTWOUPD!?',
+    'SOLOPARTTWO?!'
 }
 
 return codes
