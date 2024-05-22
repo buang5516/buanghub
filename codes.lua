@@ -79,7 +79,8 @@ local codes = {
     'QOLUpdate2!',
     'PARTTWOUPD!?',
     'SOLOPARTTWO?!',
-    'QuickFixies'
+    'QuickFixies',
+    'QuickRestart!'
 }
 
 return codes
