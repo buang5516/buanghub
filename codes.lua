@@ -80,7 +80,8 @@ local codes = {
     'PARTTWOUPD!?',
     'SOLOPARTTWO?!',
     'QuickFixies',
-    'QuickRestart!'
+    'QuickRestart!',
+    'FreeRerolls!!'
 }
 
 return codes
