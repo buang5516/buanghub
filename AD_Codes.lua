@@ -6,7 +6,9 @@ local codes = {
   'sub2jonaslyz',
   'sub2riktime',
   'sub2nagblox',
-  'release2024'
+  'release2024',
+  'adontop',
+  '200kholymoly'
 }
 
 return codes;
