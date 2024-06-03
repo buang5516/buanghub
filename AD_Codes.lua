@@ -8,7 +8,12 @@ local codes = {
   'sub2nagblox',
   'release2024',
   'adontop',
-  '200kholymoly'
+  '200kholymoly',
+  'raidsarecool',
+  'sorry4delay',
+  'thanks400k',
+  'dayum100m',
+  'wsidach4ht'
 }
 
 return codes;
