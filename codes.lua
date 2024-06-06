@@ -81,7 +81,12 @@ local codes = {
     'SOLOPARTTWO?!',
     'QuickFixies',
     'QuickRestart!',
-    'FreeRerolls!!'
+    'FreeRerolls!!',
+    'QOLSprinkleUPD',
+    'SUMMERSOON!?',
+    'UpdateRerolls!!',
+    'Sorry4Delay',
+    'SorryForShutdown!!'
 }
 
 return codes
