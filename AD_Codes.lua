@@ -13,7 +13,8 @@ local codes = {
   'sorry4delay',
   'thanks400k',
   'dayum100m',
-  'wsidach4ht'
+  'wsidach4ht',
+  'thanks500k'
 }
 
 return codes;
