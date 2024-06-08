@@ -17,6 +17,6 @@ if games[game.CreatorId] then
 		return
 	end
 	getgenv().buanghub_autoload = true;
-	
+	task.wait(3)
 	loadstring(game:HttpGet(games[game.CreatorId]))()
 end
