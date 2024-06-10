@@ -86,7 +86,10 @@ local codes = {
     'SUMMERSOON!?',
     'UpdateRerolls!!',
     'Sorry4Delay',
-    'SorryForShutdown!!'
+    'SorryForShutdown!!',
+    'DemonPortals!!',
+    '170kFavorites',
+    '170kLikes'
 }
 
 return codes
