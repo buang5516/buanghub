@@ -89,7 +89,13 @@ local codes = {
     'SorryForShutdown!!',
     'DemonPortals!!',
     '170kFavorites',
-    '170kLikes'
+    '170kLikes',
+    '170kfavorites',
+    'FollowBoss',
+    'AFKCAPSULEYAY',
+    'DemonPortals!!',
+    'ALSISBACK!',
+    'BERSERK!'
 }
 
 return codes
