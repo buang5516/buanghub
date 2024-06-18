@@ -14,7 +14,8 @@ local codes = {
   'thanks400k',
   'dayum100m',
   'wsidach4ht',
-  'thanks500k'
+  'thanks500k',
+  'idk'
 }
 
 return codes;
