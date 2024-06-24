@@ -18,5 +18,12 @@ if games[game.CreatorId] then
 		return
 	end
 	getgenv().buanghub_autoload = true;
-	loadstring(game:HttpGet(games[game.CreatorId]))()
+	if game.CreatorId == 34121350 or game.CreatorId == 12229756 then
+		repeat 
+		loadstring(game:HttpGet(games[game.CreatorId]))()
+			task.wait(10)
+		until getgenv().buanghub ~= nil;
+	else
+		loadstring(game:HttpGet(games[game.CreatorId]))()
+	end
 end
