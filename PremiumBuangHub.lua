@@ -24,8 +24,8 @@ if games[game.CreatorId] then
 			pcall(delfile, 'b648cec51b1d83aab602bbee4e2a8c6f-cache.lua')
 		end
 		repeat 
-		loadstring(game:HttpGet(games[game.CreatorId]))()
-			task.wait(20)
+			loadstring(game:HttpGet(games[game.CreatorId]))()
+			task.wait(10)
 		until getgenv().buanghub ~= nil;
 	else
 		loadstring(game:HttpGet(games[game.CreatorId]))()
