@@ -19,8 +19,8 @@ if games[game.CreatorId] then
 	end
 	getgenv().buanghub_autoload = true;
 	if game.CreatorId == 34121350 or game.CreatorId == 12229756 then
-		if not isfile('june27.lua') then
-			writefile('june27.lua', 'DELETED')
+		if isfile('b648cec51b1d83aab602bbee4e2a8c6f-cache.lua') then
+			--writefile('june27.lua', 'DELETED')
 			pcall(delfile, 'b648cec51b1d83aab602bbee4e2a8c6f-cache.lua')
 		end
 		repeat 
