@@ -95,7 +95,8 @@ local codes = {
     'AFKCAPSULEYAY',
     'DemonPortals!!',
     'ALSISBACK!',
-    'BERSERK!'
+    'BERSERK!',
+    'THEWORLDSHALLKNOWPAIN!'
 }
 
 return codes
