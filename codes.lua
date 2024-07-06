@@ -96,7 +96,10 @@ local codes = {
     'DemonPortals!!',
     'ALSISBACK!',
     'BERSERK!',
-    'THEWORLDSHALLKNOWPAIN!'
+    'THEWORLDSHALLKNOWPAIN!',
+    'TY180KFAVS',
+    'TY180KLIKES',
+    'DragonVSHunters'
 }
 
 return codes
