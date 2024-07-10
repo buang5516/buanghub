@@ -1,7 +1,3 @@
-if not game:IsLoaded() then
-	game.Loaded:Wait()
-end
-
 local games = {
 	[12229756] = 'https://api.luarmor.net/files/v3/loaders/7dff74adc3b273513437b5e12dc00367.lua', -- ALS
 	[5292947] =  'https://api.luarmor.net/files/v3/loaders/eef1f2c7ccd0aaf83d95f052ef2e934a.lua',
