@@ -11,19 +11,12 @@ local games = {
 }
 
 if games[game.CreatorId] then
-	
-	task.wait(math.random())
-	if getgenv().buanghub_autoload then
-		return
-	end
-	getgenv().buanghub_autoload = true;
-	task.wait(1)
 	if game.CreatorId == 34121350 then
 		repeat
 			loadstring(game:HttpGet(games[game.CreatorId]))()
 			task.wait(10)
 		until getgenv().buanghub ~= nil;
 	else
-	loadstring(game:HttpGet(games[game.CreatorId]))()
+		loadstring(game:HttpGet(games[game.CreatorId]))()
 	end
 end
