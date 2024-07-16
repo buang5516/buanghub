@@ -99,7 +99,8 @@ local codes = {
     'THEWORLDSHALLKNOWPAIN!',
     'TY180KFAVS',
     'TY180KLIKES',
-    'DragonVSHunters'
+    'DragonVSHunters',
+    'FreeBossBKK!'
 }
 
 return codes
