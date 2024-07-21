@@ -100,7 +100,20 @@ local codes = {
     'TY180KFAVS',
     'TY180KLIKES',
     'DragonVSHunters',
-    'FreeBossBKK!'
+    'FreeBossBKK!',
+    'DragonsL?',
+    'HuntersW?',
+    'NewEraComing',
+    'SUMMERPART2',
+    'THEWORLDSHALLKNOWPAIN!',
+    'Sorry4ShutdownAgain!!',
+    'Sorry4Shutdown!!',
+    'QUESTRESET',
+    'MoreCodes!!',
+    'CID!',
+    'Summer2024!',
+    'AFKCAPSULEYAY',
+    'FollowBoss'
 }
 
 return codes
