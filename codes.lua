@@ -113,7 +113,13 @@ local codes = {
     'CID!',
     'Summer2024!',
     'AFKCAPSULEYAY',
-    'FollowBoss'
+    'FollowBoss',
+    'GODLIES',
+    '200KLIKES',
+    'FIREFORCE',
+    'TYFORSUPPORT',
+    'BLEACH',
+    'WORLD2ISOUT'
 }
 
 return codes
