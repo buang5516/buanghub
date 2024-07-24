@@ -119,7 +119,8 @@ local codes = {
     'FIREFORCE',
     'TYFORSUPPORT',
     'BLEACH',
-    'WORLD2ISOUT'
+    'WORLD2ISOUT',
+    'Bugfixesgoincrazy'
 }
 
 return codes
