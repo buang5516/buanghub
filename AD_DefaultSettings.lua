@@ -9,6 +9,7 @@ local dSettings = {
 	['AutoStart'] = false,
 	['Auto Start Delay'] = 4,
 	['Auto Start Time Delay'] = 30,
+	['Auto Start Option'] = 'Player + Time',
 	['Auto Leave'] = false,
 	['Auto Next'] = false,
 	['Auto Replay'] = false,
