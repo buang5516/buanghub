@@ -124,7 +124,8 @@ local codes = {
     'BCUPDATE',
     'CLOVER',
     'QuestsFixed!',
-    'SUPPORTCRAZY'
+    'SUPPORTCRAZY',
+    'Sry4Shutdown!'
 }
 
 return codes
