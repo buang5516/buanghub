@@ -120,7 +120,11 @@ local codes = {
     'TYFORSUPPORT',
     'BLEACH',
     'WORLD2ISOUT',
-    'Bugfixesgoincrazy'
+    'Bugfixesgoincrazy',
+    'BCUPDATE',
+    'CLOVER',
+    'QuestsFixed!',
+    'SUPPORTCRAZY'
 }
 
 return codes
