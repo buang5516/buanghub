@@ -17,7 +17,10 @@ local codes = {
   'thanks500k',
   'idk',
   'fortunetickets',
-  'codeis'
+  'codeis',
+  'athenyxlivex',
+  'newrealmx',
+  'megaupdatex'
 }
 
 return codes;
