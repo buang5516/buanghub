@@ -11,7 +11,7 @@ local games = {
 	[15022320] = 'https://api.luarmor.net/files/v3/loaders/07d71dd1339d9d813e40e938d824bdcc.lua',
 	[5102326] = 'https://api.luarmor.net/files/v3/loaders/ce64962ee176c33b012b9981c4b54b1a.lua', -- ACD
 	[34121350] = 'https://api.luarmor.net/files/v3/loaders/b648cec51b1d83aab602bbee4e2a8c6f.lua',
-	[15762744] = 'https://api.luarmor.net/files/v3/loaders/9eb613f19315ea532037342724839956.lua', -- SAD
+	[15762744] = 'https://api.luarmor.net/files/v3/loaders/9eb613f19315ea532037342724839956.lua' -- SAD
 }
 
 if games[game.CreatorId] then
