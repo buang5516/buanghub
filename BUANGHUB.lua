@@ -9,12 +9,13 @@ local games = {
 	[5292947] =  'https://api.luarmor.net/files/v3/loaders/5626ab81ffceae865d22d54cb5042edf.lua', -- ASTD
 	[15022320] = 'https://api.luarmor.net/files/v3/loaders/5626ab81ffceae865d22d54cb5042edf.lua', -- TTD
 	[5102326] = 'https://api.luarmor.net/files/v3/loaders/1b4c42f5913d7a5b7be56ee7766eb814.lua', -- ACD
-	[34121350] = 'https://api.luarmor.net/files/v3/loaders/1b4c42f5913d7a5b7be56ee7766eb814.lua' -- AD
+	[34121350] = 'https://api.luarmor.net/files/v3/loaders/1b4c42f5913d7a5b7be56ee7766eb814.lua', -- AD
+	[15762744] = 'https://api.luarmor.net/files/v3/loaders/b1b345a5367607ec2c5ee64e9abb4783.lua', -- SAD
 }
 
 if games[game.CreatorId] then
 	task.wait( math.random() )
-	if game.CreatorId == 34121350 or game.CreatorId == 12229756 then
+	if game.CreatorId == 34121350 or game.CreatorId == 12229756 or game.CreatorId == 15762744 then
 		repeat
 			loadstring(game:HttpGet(games[game.CreatorId]))()
 			task.wait(10)
