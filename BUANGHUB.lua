@@ -16,6 +16,7 @@ local games = {
 if games[game.CreatorId] then
 	task.wait( math.random() )
 	if game.CreatorId == 34121350 or game.CreatorId == 12229756 or game.CreatorId == 15762744 then
+		if game.CreatorId == 15762744 then print('Loaded') end;
 		repeat
 			loadstring(game:HttpGet(games[game.CreatorId]))()
 			task.wait(10)
