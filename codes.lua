@@ -125,7 +125,13 @@ local codes = {
     'CLOVER',
     'QuestsFixed!',
     'SUPPORTCRAZY',
-    'Sry4Shutdown!'
+    'Sry4Shutdown!',
+    'BPReset!',
+    'UPDTIME',
+    'TensuraSlime!',
+    'Event!!!',
+    'SecretCodeFR',
+    'SLIME!!'
 }
 
 return codes
