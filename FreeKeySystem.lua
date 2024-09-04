@@ -13,5 +13,5 @@ if games[game.CreatorId] ~= nil and script_key ~= nil then
   repeat
     loadstring(game:HttpGet( games[game.CreatorId] ))()
     task.wait(10)
-  until game.buanghub ~= nil;
+  until getgenv().buanghub ~= nil;
 end
