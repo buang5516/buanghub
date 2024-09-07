@@ -15,6 +15,10 @@ local games = {
 }
 
 if games[game.CreatorId] then
+	if getgenv().executed_buang ~= nil then
+		return
+	end
+	getgenv().executed_buang = true
 	task.wait( math.random() )
 	if game.CreatorId == 34121350 or game.CreatorId == 12229756 or game.CreatorId == 15762744 then
 		print("Loaded")
