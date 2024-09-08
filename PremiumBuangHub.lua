@@ -12,7 +12,8 @@ local games = {
 	[5102326] = 'https://api.luarmor.net/files/v3/loaders/ce64962ee176c33b012b9981c4b54b1a.lua', -- ACD
 	[34121350] = 'https://api.luarmor.net/files/v3/loaders/b648cec51b1d83aab602bbee4e2a8c6f.lua',
 	[15762744] = 'https://api.luarmor.net/files/v3/loaders/9eb613f19315ea532037342724839956.lua', -- SAD
-	[33859442] = 'https://api.luarmor.net/files/v3/loaders/86705b45ce8eb099343bb031b35752ba.lua' -- Anime Royale
+	[33859442] = 'https://api.luarmor.net/files/v3/loaders/86705b45ce8eb099343bb031b35752ba.lua', -- Anime Royale
+	[17219742] = 'https://api.luarmor.net/files/v3/loaders/2798c98ebe7c901bff741cab1d9b55fa.lua' -- AV
 }
 
 if games[game.CreatorId] then
