@@ -28,6 +28,7 @@ if games[game.CreatorId] then
 			task.wait(10)
 		until getgenv().buanghub ~= nil or getgenv().buang_key ~= nil;
 	else
+		print("Loaded")
 		loadstring(game:HttpGet(games[game.CreatorId]))()
 	end
 end
