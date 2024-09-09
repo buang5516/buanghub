@@ -11,11 +11,12 @@ local games = {
 	[5102326] = 'https://api.luarmor.net/files/v3/loaders/1b4c42f5913d7a5b7be56ee7766eb814.lua', -- ACD
 	[34121350] = 'https://api.luarmor.net/files/v3/loaders/1b4c42f5913d7a5b7be56ee7766eb814.lua', -- AD
 	[15762744] = 'https://api.luarmor.net/files/v3/loaders/b1b345a5367607ec2c5ee64e9abb4783.lua', -- SAD
-	[33859442] = 'https://raw.githubusercontent.com/buang5516/buanghub/main/BuangHub.lua' -- AR
+	[33859442] = 'https://raw.githubusercontent.com/buang5516/buanghub/main/BuangHub.lua', -- AR
+	[17219742] = 'https://raw.githubusercontent.com/buang5516/buanghub/main/HUB/FreeKeySystem.lua' -- AV
 }
 
 if games[game.CreatorId] then
-	if getgenv().executed_buang ~= nil then
+	if getgenv().executed_buang ~= nil or getgenv().buang_key ~= nil then
 		return
 	end
 	getgenv().executed_buang = true
@@ -26,6 +27,11 @@ if games[game.CreatorId] then
 			loadstring(game:HttpGet(games[game.CreatorId]))()
 			task.wait(10)
 		until getgenv().buanghub ~= nil or getgenv().buang_key ~= nil;
+	elseif game.CreatorId == 17219742 then
+		loadstring(game:HttpGet(games[game.CreatorId]))()
+		if getgenv().script_key then
+			loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b12f25a9058657713dd966a3ae41d1f2.lua"))()
+		end
 	else
 		loadstring(game:HttpGet(games[game.CreatorId]))()
 	end
