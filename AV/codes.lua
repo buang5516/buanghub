@@ -1,6 +1,7 @@
 local codes = {
   "RELEASE",
-  "DELAY"
+  "DELAY",
+  "10MVISITS"
 }
 
 return codes;
