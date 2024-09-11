@@ -1,7 +1,7 @@
 local modifiers = {
-  "Thrice",
-  "Shielded",
-  "Regen"
+  "thrice",
+  "shielded",
+  "regen"
 }
 
 return modifiers;
