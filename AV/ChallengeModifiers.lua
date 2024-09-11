@@ -1,7 +1,10 @@
 local modifiers = {
   "thrice",
   "shielded",
-  "regen"
+  "regen",
+  "strong",
+  "fast",
+  "exploding"
 }
 
 return modifiers;
