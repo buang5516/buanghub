@@ -7,7 +7,8 @@ local codes = {
   "200KLIKES",
   "300KLIKES",
   "25MVISITS",
-  "400KLIKES"
+  "400KLIKES",
+  "AV500KLIKES"
 }
 
 return codes;
