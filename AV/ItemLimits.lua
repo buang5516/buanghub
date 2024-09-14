@@ -1,7 +1,28 @@
-local limits = {
-  ["Green Essence Stone"] = 100,
-  ["Legendary Essence Stone"] = 50,
-  ["Rainbow Essence Stone"] = 25,
-  ["Stat Chip"] = 100,
-  ["Super Stat Chip"] = 50
-}
+local limits = { 
+	["Yellow Essence Stone"] = 50,
+	["Job Change Quest"] = 300,
+	["Flower"] = 9999,
+	["Red Chakra"] = 100,
+	["Broken Sword"] = 36,
+	["Shadow Traces"] = 36,
+	["Rainbow Essence Stone"] = 25,
+	["Hellsing Arms"] = 100,
+	["Crystal"] = 9999,
+	["Blue Chakra"] = 100,
+	["Blue Essence Stone"] = 50,
+	["Red Essence Stone"] = 50,
+	["Super Stat Chip"] = 50,
+	["Syringe"] = 9999,
+	["Purple Essence Stone"] = 50,
+	["Ramen"] = 9999,
+	["Senzu Bean"] = 9999,
+	["Pink Essence Stone"] = 50,
+	["Blood-Red Armor"] = 36,
+	["Skin Patch"] = 36,
+	["Green Essence Stone"] = 100,
+	["Fruit"] = 9999,
+	["Stat Chip"] = 100,
+	["Snake Scale"] = 36,
+	} 
+
+return limits;
