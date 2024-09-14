@@ -10,6 +10,7 @@ local codes = {
   "400KLIKES",
   "AV500KLIKES",
   "300KPLAYERS",
+  "70MVISITS",
   "100MVISITS",
   "800KLIKES"
 }
