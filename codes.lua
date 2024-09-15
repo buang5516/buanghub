@@ -131,7 +131,11 @@ local codes = {
     'TensuraSlime!',
     'Event!!!',
     'SecretCodeFR',
-    'SLIME!!'
+    'SLIME!!',
+    'HeavenUpdateHYPE??',
+    'FollowDalG',
+    'OverHeaven!',
+    '10KFR!'
 }
 
 return codes
