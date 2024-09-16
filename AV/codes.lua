@@ -12,7 +12,9 @@ local codes = {
   "300KPLAYERS",
   "70MVISITS",
   "100MVISITS",
-  "800KLIKES"
+  "800KLIKES",
+  "600KLIKES",
+  "AV50MIL"
 }
 
 return codes;
