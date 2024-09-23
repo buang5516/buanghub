@@ -12,7 +12,7 @@ local games = {
 	[34121350] = 'https://api.luarmor.net/files/v3/loaders/1b4c42f5913d7a5b7be56ee7766eb814.lua', -- AD
 	[15762744] = 'https://api.luarmor.net/files/v3/loaders/b1b345a5367607ec2c5ee64e9abb4783.lua', -- SAD
 	[33859442] = 'https://raw.githubusercontent.com/buang5516/buanghub/main/BuangHub.lua', -- AR
-	[17219742] = 'https://api.luarmor.net/files/v3/loaders/695158390d5a4b3bae957c39a2f83636.lua' -- AV
+	[17219742] = "https://raw.githubusercontent.com/buang5516/buanghub/refs/heads/main/HUB/FreeKeySystem.lua" -- AV
 }
 
 if games[game.CreatorId] then
@@ -27,6 +27,11 @@ if games[game.CreatorId] then
 			loadstring(game:HttpGet(games[game.CreatorId]))()
 			task.wait(10)
 		until getgenv().buanghub ~= nil or getgenv().buang_key ~= nil;
+	elseif game.CreatorId == 17219742 then
+		print("Loaded")
+		loadstring(game:HttpGet(games[game.CreatorId]))()
+		repeat task.wait(0.1) until getgenv().script_key ~= nil;
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/695158390d5a4b3bae957c39a2f83636.lua"))()
 	else
 		print("Loaded")
 		loadstring(game:HttpGet(games[game.CreatorId]))()
