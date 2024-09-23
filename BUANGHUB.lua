@@ -30,7 +30,7 @@ if games[game.CreatorId] then
 	elseif game.CreatorId == 17219742 then
 		print("Loaded")
 		loadstring(game:HttpGet(games[game.CreatorId]))()
-		repeat task.wait(0.1) until getgenv().script_key ~= nil;
+		repeat task.wait() until getgenv().script_key ~= nil;
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/695158390d5a4b3bae957c39a2f83636.lua"))()
 	else
 		print("Loaded")
