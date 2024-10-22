@@ -1,5 +1,6 @@
 local units = {
-  "Sprintwagon"
+  "Sprintwagon",
+  "Takaroda"
 }
 
 return units;
