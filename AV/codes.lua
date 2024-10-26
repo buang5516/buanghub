@@ -6,7 +6,10 @@ local codes = {
   "ROST10K",
   "SLAYER",
   "LATEUPDATESORRY",
-  "THXFOR1MLIKES"
+  "THXFOR1MLIKES",
+  "WECURSESHAVENOLIMITS",
+  "500MVISITS",
+  "STANDPROUD"
 }
 
 return codes;
