@@ -12,7 +12,8 @@ local games = {
 	[34121350] = 'https://api.luarmor.net/files/v3/loaders/1b4c42f5913d7a5b7be56ee7766eb814.lua', -- AD
 	[15762744] = 'https://api.luarmor.net/files/v3/loaders/b1b345a5367607ec2c5ee64e9abb4783.lua', -- SAD
 	[33859442] = 'https://raw.githubusercontent.com/buang5516/buanghub/main/BuangHub.lua', -- AR
-	[17219742] = "https://raw.githubusercontent.com/buang5516/buanghub/refs/heads/main/HUB/FreeKeySystem.lua" -- AV
+	[17219742] = "https://raw.githubusercontent.com/buang5516/buanghub/refs/heads/main/HUB/FreeKeySystem.lua", -- AV
+	[10611639] = 'https://api.luarmor.net/files/v3/loaders/ce6e71a549aa871fea32fee1da4361e0.lua' -- AA
 }
 
 if games[game.CreatorId] then
