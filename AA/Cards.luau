@@ -21,7 +21,10 @@ local Cards = {
     "+ Yen III",
     "- Cooldown I",
     "- Cooldown II",
-    "- Cooldown III"
+    "- Cooldown III",
+    "- Active Cooldown I",
+    "- Active Cooldown II",
+    "- Active Cooldown III"
   },
   Debuff = {
     "+ Enemy Health I",
