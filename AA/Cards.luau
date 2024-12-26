@@ -6,9 +6,6 @@ local Cards = {
     "+ Boss Damage I",
     "+ Boss Damage II",
     "+ Boss Damage III",
-    "+ Explosive Deaths I",
-    "+ Explosive Deaths II",
-    "+ Explosive Deaths III",
     "+ Gain 2 Random Effects Tier 1",
     "+ Gain 2 Random Effects Tier 2",
     "+ Gain 2 Random Effects Tier 3",
@@ -36,6 +33,9 @@ local Cards = {
     "+ Enemy Speed I",
     "+ Enemy Speed II",
     "+ Enemy Speed III",
+    "+ Explosive Deaths I",
+    "+ Explosive Deaths II",
+    "+ Explosive Deaths III"
   }
 }
 
