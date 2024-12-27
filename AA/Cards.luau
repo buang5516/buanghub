@@ -12,6 +12,9 @@ local Cards = {
     "+ Range I",
     "+ Range II",
     "+ Range III",
+    "+ Random Blessings I",
+    "+ Random Blessings II",
+    "+ Random Blessings III",
     "+ Yen I",
     "+ Yen II",
     "+ Yen III",
@@ -38,7 +41,10 @@ local Cards = {
     "+ Explosive Deaths I",
     "+ Explosive Deaths II",
     "+ Explosive Deaths III",
-    "+ New Path"
+    "+ New Path",
+    "+ Random Curses I",
+    "+ Random Curses II",
+    "+ Random Curses III"
   }
 }
 
