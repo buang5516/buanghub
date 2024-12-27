@@ -9,7 +9,6 @@ local Cards = {
     "+ Gain 2 Random Effects Tier 1",
     "+ Gain 2 Random Effects Tier 2",
     "+ Gain 2 Random Effects Tier 3",
-    "+ New Path",
     "+ Range I",
     "+ Range II",
     "+ Range III",
@@ -38,7 +37,8 @@ local Cards = {
     "+ Enemy Regen III",
     "+ Explosive Deaths I",
     "+ Explosive Deaths II",
-    "+ Explosive Deaths III"
+    "+ Explosive Deaths III",
+    "+ New Path"
   }
 }
 
