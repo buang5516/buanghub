@@ -33,6 +33,9 @@ local Cards = {
     "+ Enemy Speed I",
     "+ Enemy Speed II",
     "+ Enemy Speed III",
+    "+ Enemy Regen I",
+    "+ Enemy Regen II",
+    "+ Enemy Regen III",
     "+ Explosive Deaths I",
     "+ Explosive Deaths II",
     "+ Explosive Deaths III"
