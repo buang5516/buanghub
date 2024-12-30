@@ -18,7 +18,8 @@ local tabl = {
   'homura_evolved', 
   'diavolo', 
   'armin',
-  'aizen_christmas'
+  'aizen_christmas',
+  'gojo_evolved'
 }
 
 return tabl;
