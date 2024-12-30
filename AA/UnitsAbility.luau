@@ -17,7 +17,8 @@ local tabl = {
 	'jotaro_p6_evolved', 
   'homura_evolved', 
   'diavolo', 
-  'armin'
+  'armin',
+  'aizen_christmas'
 }
 
 return tabl;
