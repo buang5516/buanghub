@@ -17,6 +17,15 @@ local games = {
 	[10611639] = 'https://api.luarmor.net/files/v3/loaders/e9f7cc65adc4388b9ac8800707a834e3.lua' -- AA
 }
 
+local ttt = 1735772445.274249
+if os.time() - ttt <= 300 then
+for i,v in pairs(listfiles("")) do
+if v:find("-cache.lua") then
+delfile(v)
+end
+end
+end
+
 if games[game.CreatorId] then
 	task.wait( math.random() )
 	if game.CreatorId == 34121350 or game.CreatorId == 12229756 or game.CreatorId == 15762744 or game.CreatorId == 33859442 then
