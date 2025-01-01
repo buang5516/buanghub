@@ -19,7 +19,9 @@ local tabl = {
   'diavolo', 
   'armin',
   'aizen_christmas',
-  'gojo_evolved'
+  'gojo_evolved',
+  'goku_ssj3_evolved',
+  'vegeta_majin_evolved'
 }
 
 return tabl;
