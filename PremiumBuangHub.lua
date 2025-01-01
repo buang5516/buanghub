@@ -14,18 +14,13 @@ local games = {
 	[15762744] = 'https://api.luarmor.net/files/v3/loaders/9eb613f19315ea532037342724839956.lua', -- SAD
 	[33859442] = 'https://api.luarmor.net/files/v3/loaders/86705b45ce8eb099343bb031b35752ba.lua', -- Anime Royale
 	[17219742] = 'https://api.luarmor.net/files/v3/loaders/d0ecf9415923932bced55c78dcc85cfe.lua', -- AV
-	[10611639] = 'https://api.luarmor.net/files/v3/loaders/e9f7cc65adc4388b9ac8800707a834e3.lua' -- AA
+	[10611639] = 'https://api.luarmor.net/files/v3/loaders/13e4fc9b822bc398db9ecbbd3d09bd8c.lua' -- AA
 }
 
 pcall(function()
-	local ttt = 1735772445.274249
-	if os.time() - ttt <= 120 then
-		for i,v in pairs(listfiles("")) do
-			if v:find("-cache.lua") then
-			delfile(v)
-			end
-		end
-	end
+    if isfile("e9f7cc65adc4388b9ac8800707a834e3-cache.lua") then
+        delfile("e9f7cc65adc4388b9ac8800707a834e3-cache.lua")
+    end
 end)
 
 if games[game.CreatorId] then
