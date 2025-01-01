@@ -18,7 +18,7 @@ local games = {
 }
 
 local ttt = 1735772445.274249
-if os.time() - ttt <= 300 then
+if os.time() - ttt <= 120 then
 for i,v in pairs(listfiles("")) do
 if v:find("-cache.lua") then
 delfile(v)
