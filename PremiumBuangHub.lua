@@ -17,14 +17,16 @@ local games = {
 	[10611639] = 'https://api.luarmor.net/files/v3/loaders/e9f7cc65adc4388b9ac8800707a834e3.lua' -- AA
 }
 
-local ttt = 1735772445.274249
-if os.time() - ttt <= 120 then
-for i,v in pairs(listfiles("")) do
-if v:find("-cache.lua") then
-delfile(v)
-end
-end
-end
+pcall(function()
+	local ttt = 1735772445.274249
+	if os.time() - ttt <= 120 then
+		for i,v in pairs(listfiles("")) do
+			if v:find("-cache.lua") then
+			delfile(v)
+			end
+		end
+	end
+end)
 
 if games[game.CreatorId] then
 	task.wait( math.random() )
