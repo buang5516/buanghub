@@ -26,7 +26,7 @@ local Cards = {
     "- Active Cooldown III",
     "+ Double Attack, Half Range",
     "+ Double Attack, Double Cooldown",
-    "Double Attack"
+    "+ Double Attack"
   },
   Debuff = {
     "+ Enemy Health I",
