@@ -1,3 +1,5 @@
-local codes = {}
+local codes = {
+  "ASSASSIN"
+}
 
 return codes;
