@@ -7,7 +7,9 @@ local icons = {
 	Jewels = '<:als_jewels:1265957290251522089>',
 	Candy = '<:alscandy:1300366683826814996>',
     	BossRushTokens = '<:BossRushTokens:1318304496404664431>',
-   	 SkinTicket = '<:SkinTicket:1318304829172617306>'
+   	 SkinTicket = '<:SkinTicket:1318304829172617306>',
+	Anniversary1Tokens = '<:Anniversary1Tokens:1338944371701317864>',
+	Anniversary1Tickets = '<:Anniversary1Tickets:1338944972015145070>'
 }
 
 return icons;
