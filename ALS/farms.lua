@@ -4,7 +4,7 @@ local farms = {
   'Escanor (Bar)', 
   'Girl Speedwagon', 
   'Speedwagon',
-  'Yoo Jinho'.
+  'Yoo Jinho',
   'AiHoshinoEvo',
   'Demon Child',
   'Demon Child (Unleashed)'
