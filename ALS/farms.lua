@@ -4,7 +4,8 @@ local farms = {
   'Escanor (Bar)', 
   'Girl Speedwagon', 
   'Speedwagon',
-  'Yoo Jinho'
+  'Yoo Jinho'.
+  'AiHoshinoEvo'
 }
 
 return farms;
