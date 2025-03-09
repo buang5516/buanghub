@@ -1,5 +1,6 @@
 local codes = {
-  "ASSASSIN"
+  "ASSASSIN",
+  "DUNGEONS"
 }
 
 return codes;
