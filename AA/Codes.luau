@@ -1,6 +1,8 @@
 local codes = {
   "ASSASSIN",
-  "DUNGEONS"
+  "DUNGEONS",
+  "UPDATE20RELEASE",
+  "UPD20INCOMING"
 }
 
 return codes;
