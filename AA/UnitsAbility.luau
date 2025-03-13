@@ -22,7 +22,8 @@ local tabl = {
   'gojo_evolved',
   'goku_ssj3_evolved',
   'vegeta_majin_evolved',
-  'buddha_evolved'
+  'buddha_evolved',
+  'hakari_evolved'
 }
 
 return tabl;
