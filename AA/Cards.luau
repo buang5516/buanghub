@@ -48,7 +48,13 @@ local Cards = {
     "+ New Path",
     "+ Random Curses I",
     "+ Random Curses II",
-    "+ Random Curses III"
+    "+ Random Curses III",
+    "+ Resistant Enemies I",
+    "+ Resistant Enemies II",
+    "+ Resistant Enemies III",
+    "+ Spellproof Enemies I",
+    "+ Spellproof Enemies II",
+    "+ Spellproof Enemies III"
   }
 }
 
