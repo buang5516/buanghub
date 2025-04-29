@@ -10,7 +10,8 @@ local icons = {
    	 SkinTicket = '<:SkinTicket:1318304829172617306>',
 	Anniversary1Tokens = '<:Anniversary1Tokens:1338944371701317864>',
 	Anniversary1Tickets = '<:Anniversary1Tickets:1338944972015145070>',
-	EasterEgg = '<:easteregg:1366617917076144221>'
+	EasterEgg = '<:easteregg:1366617917076144221>',
+	LargeEasterEgg = '<:largeEasterEgg:1366618509437566997>'
 }
 
 return icons;
