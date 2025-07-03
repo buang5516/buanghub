@@ -8,7 +8,9 @@ local farms = {
   'AiHoshinoEvo',
   'Demon Child',
   'Demon Child (Unleashed)',
-  'RobinEvo'
+  'RobinEvo',
+  'Bulma',
+  'WarBulmaEvo'
 }
 
 return farms;
