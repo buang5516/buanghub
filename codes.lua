@@ -1,8 +1,14 @@
 local codes = {
-    "SuperSecretCODE",
-    "KingOfHeroes!",
-    "NewBattlepass!",
-    "GodlyUpdate!"
+    "SORRYForDelay!!",
+    "The1stSunSwordsman!",
+    "FireAndLightningDevil",
+    "Update60!",
+    "SummerFixes!!",
+    "SummerSECRETCode?!",
+    "SUMMERisHERE!",
+    "PiratesVsSharkmen!",
+    "SummerBINGO!",
 }
+
 
 return codes;
