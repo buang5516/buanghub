@@ -15,13 +15,8 @@ local games = {
 	[33859442] = 'https://api.luarmor.net/files/v3/loaders/86705b45ce8eb099343bb031b35752ba.lua', -- Anime Royale
 	[17219742] = 'https://api.luarmor.net/files/v3/loaders/d0ecf9415923932bced55c78dcc85cfe.lua', -- AV
 	[10611639] = 'https://api.luarmor.net/files/v3/loaders/13e4fc9b822bc398db9ecbbd3d09bd8c.lua' -- AA
+	[5292947] = 'https://api.luarmor.net/files/v3/loaders/fc54289fa1b92a056bf6e9cf5f8bc08a.lua' -- ASTD X
 }
-
-pcall(function()
-    if isfile("e9f7cc65adc4388b9ac8800707a834e3-cache.lua") then
-        delfile("e9f7cc65adc4388b9ac8800707a834e3-cache.lua")
-    end
-end)
 
 if games[game.CreatorId] then
 	task.wait( math.random() )
