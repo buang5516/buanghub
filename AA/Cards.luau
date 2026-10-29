@@ -55,6 +55,9 @@ local Cards = {
     "+ Spellproof Enemies I",
     "+ Spellproof Enemies II",
     "+ Spellproof Enemies III"
+    "+ Resistant Enemies I",
+    "+ Resistant Enemies II",
+    "+ Resistant Enemies III"
   }
 }
 
