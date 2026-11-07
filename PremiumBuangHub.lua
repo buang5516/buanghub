@@ -18,15 +18,83 @@ local games = {
 	[5292947] = 'https://api.luarmor.net/files/v3/loaders/fc54289fa1b92a056bf6e9cf5f8bc08a.lua' -- ASTD X
 }
 
-if games[game.CreatorId] then
-	task.wait( math.random() )
-	if game.CreatorId == 34121350 or game.CreatorId == 12229756 or game.CreatorId == 15762744 or game.CreatorId == 33859442 then
-		print('Loaded')
-		repeat 
-			loadstring(game:HttpGet(games[game.CreatorId]))()
-			task.wait(10)
-		until getgenv().buanghub ~= nil;
-	else
-		loadstring(game:HttpGet(games[game.CreatorId]))()
-	end
+local kaitun = {
+    [10611639] = 'https://api.luarmor.net/files/v3/loaders/e9f7cc65adc4388b9ac8800707a834e3.lua' -- AA
+}
+
+local env = getgenv()
+local creatorId = game.CreatorId
+
+local specialGames = {
+    [34121350] = true,
+    [12229756] = true,
+    [15762744] = true,
+    [33859442] = true,
+}
+
+local function isKaitunEnabled()
+    return env.BuangKaitun
+        or BuangKaitun
+        or env.BUANG_KAITUN
+        or BUANG_KAITUN
+end
+
+local function loadScript(url)
+    local success, result = pcall(function()
+        local source = game:HttpGet(url)
+        local chunk = loadstring(source)
+
+        assert(chunk, "Failed to compile script")
+        return chunk()
+    end)
+
+    if not success then
+        warn("[Loader] Failed:", result)
+    end
+
+    return success
+end
+
+local function getScriptUrl()
+    if isKaitunEnabled() and kaitun[creatorId] then
+        return kaitun[creatorId]
+    end
+
+    return games[creatorId]
+end
+
+local scriptUrl = games[creatorId]
+
+if scriptUrl then
+    task.wait(math.random(1, 3))
+
+    if specialGames[creatorId] then
+        --print("[Loader] Loading special game")
+
+        local maxAttempts = 5
+
+        for attempt = 1, maxAttempts do
+            loadScript(scriptUrl)
+
+            if env.buanghub ~= nil then
+               -- print("[Loader] Loaded successfully")
+                break
+            end
+
+            if attempt < maxAttempts then
+                task.wait(10)
+            else
+               -- warn("[Loader] Failed after " .. maxAttempts .. " attempts")
+            end
+        end
+    else
+        local selectedUrl = getScriptUrl()
+        local mode = selectedUrl == kaitun[creatorId] and "Kaitun" or "Default"
+
+        if loadScript(selectedUrl) then
+            print("[Loader] " .. mode .. " script loaded")
+        end
+    end
+else
+    warn("[Loader] No script configured for CreatorId:", creatorId)
 end
